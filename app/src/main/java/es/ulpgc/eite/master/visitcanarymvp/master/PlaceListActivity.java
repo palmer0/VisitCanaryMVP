@@ -1,5 +1,6 @@
 package es.ulpgc.eite.master.visitcanarymvp.master;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -13,21 +14,40 @@ import java.util.List;
 
 import es.ulpgc.eite.master.visitcanarymvp.R;
 import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
+import es.ulpgc.mvp.arch.BaseActivity;
 
+//@Viewable(presenter = PlaceListPresenter.class, layout = R.layout.activity_place_list)
+public class PlaceListActivity
+    //extends BaseAnnotatedActivity<PlaceListContract.View, PlaceListContract.Presenter>
+    extends BaseActivity<PlaceListContract.View, PlaceListContract.Presenter>
+    implements PlaceListContract.View {
 
-public class PlaceListActivity extends AppCompatActivity {
 
     //private PlaceStore placeStore;
-    private PlaceListPresenter presenter;
+    //private PlaceListPresenter presenter;
+
+
+    @Override
+    protected PlaceListContract.Presenter initPresenter() {
+        return new PlaceListPresenter();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_place_list);
 
-        presenter = new PlaceListPresenter(this);
+        //presenter = new PlaceListPresenter(this);
+
         //fillPlaceStore();
         //setupUI();
 
+    }
+
+
+    public Context getManagedContext(){
+        return getBaseContext();
     }
 
     /*
@@ -40,20 +60,24 @@ public class PlaceListActivity extends AppCompatActivity {
     */
 
     public void setupUI(List<PlaceStore.Place> places){
-        setContentView(R.layout.activity_place_list);
+        //setContentView(R.layout.activity_place_list);
 
         setupToolbar();
         setupRecyclerView(places);
     }
 
+    public void openDetailActivity() {
+
+    }
+
     private void setupRecyclerView(List<PlaceStore.Place> places) {
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.place_list);
+        RecyclerView recyclerView = findViewById(R.id.place_list);
         recyclerView.setAdapter(new PlaceRecyclerViewAdapter(places));
     }
 
     private void setupToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
     }
@@ -103,19 +127,15 @@ public class PlaceListActivity extends AppCompatActivity {
 
             holder.placeIdView.setText(places.get(position).id);
 
-            holder.placeView.setOnClickListener(new View.OnClickListener() {
+            holder.placeView.setOnClickListener(view -> {
+                presenter.placeClicked(holder.placeItem.id);
 
-                @Override
-                public void onClick(View view) {
-                    presenter.placeClicked(holder.placeItem.id);
-
-                    /*
-                    Context context = view.getContext();
-                    Intent intent = new Intent(context, PlaceDetailActivity.class);
-                    intent.putExtra(PlaceDetailActivity.PARAM_PLACE_ID, holder.placeItem.id);
-                    context.startActivity(intent);
-                    */
-                }
+                /*
+                Context context = view.getContext();
+                Intent intent = new Intent(context, PlaceDetailActivity.class);
+                intent.putExtra(PlaceDetailActivity.PARAM_PLACE_ID, holder.placeItem.id);
+                context.startActivity(intent);
+                */
             });
         }
 

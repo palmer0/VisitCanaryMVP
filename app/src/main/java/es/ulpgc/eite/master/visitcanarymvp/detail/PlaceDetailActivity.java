@@ -34,12 +34,12 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
         setupToolbar(place.title);
 
-        TextView placeDetail = (TextView) findViewById(R.id.place_detail);
-        placeDetail.setText(place.details);
-        ImageView placePicture = (ImageView) findViewById(R.id.place_picture);
-
+        ImageView placePicture = findViewById(R.id.place_picture);
         int resId= getResources().getIdentifier(place.picture, "drawable", getPackageName());
         placePicture.setImageResource(resId);
+
+        TextView placeDetail = findViewById(R.id.place_detail);
+        placeDetail.setText(place.details);
     }
 
     /*
@@ -74,7 +74,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
     */
 
     private void setupToolbar(String title) {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar actionbar = getSupportActionBar();
