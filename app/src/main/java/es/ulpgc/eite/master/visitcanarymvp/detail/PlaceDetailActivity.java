@@ -1,5 +1,6 @@
 package es.ulpgc.eite.master.visitcanarymvp.detail;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,34 +9,53 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import es.ulpgc.eite.master.visitcanarymvp.R;
+import es.ulpgc.eite.master.visitcanarymvp.master.PlaceListPresenter;
 import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
+import es.ulpgc.mvp.arch.BaseActivity;
 
 
-public class PlaceDetailActivity extends AppCompatActivity {
-
+//@Viewable(presenter = PlaceDetailPresenter.class, layout = R.layout.activity_place_detail)
+public class PlaceDetailActivity
+    //extends BaseAnnotatedActivity<PlaceDetailContract.View, PlaceDetailContract.Presenter>
+    extends BaseActivity<PlaceDetailContract.View, PlaceDetailContract.Presenter>
+    implements PlaceDetailContract.View {
+    
+    
     //public static final String PARAM_PLACE_ID = "place_to_visit_id";
 
     //private PlaceStore placeStore;
-    private PlaceDetailPresenter presenter;
+    //private PlaceDetailPresenter presenter;
+
+    @Override
+    protected PlaceDetailContract.Presenter initPresenter() {
+        return new PlaceDetailPresenter();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_place_detail);
 
-        presenter = new PlaceDetailPresenter(this);
+        //presenter = new PlaceDetailPresenter(this);
+
         //fillPlaceStore();
         //setupUI();
 
     }
 
 
+    public Context getManagedContext(){
+        return getBaseContext();
+    }
+
     public void setupUI(PlaceStore.Place place){
-        setContentView(R.layout.activity_place_detail);
+        //setContentView(R.layout.activity_place_detail);
 
         setupToolbar(place.title);
 
         ImageView placePicture = findViewById(R.id.place_picture);
-        int resId= getResources().getIdentifier(place.picture, "drawable", getPackageName());
+        int resId = getResources().getIdentifier(
+            place.picture, "drawable", getPackageName());
         placePicture.setImageResource(resId);
 
         TextView placeDetail = findViewById(R.id.place_detail);

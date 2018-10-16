@@ -2,7 +2,6 @@ package es.ulpgc.eite.master.visitcanarymvp.master;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import es.ulpgc.eite.master.visitcanarymvp.R;
+import es.ulpgc.eite.master.visitcanarymvp.detail.PlaceDetailActivity;
 import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
 import es.ulpgc.mvp.arch.BaseActivity;
 
@@ -55,7 +55,7 @@ public class PlaceListActivity
         setContentView(R.layout.activity_place_list);
 
         setupToolbar();
-        setupRecyclerView();
+        setupAdapter();
     }
     */
 
@@ -63,17 +63,17 @@ public class PlaceListActivity
         //setContentView(R.layout.activity_place_list);
 
         setupToolbar();
-        setupRecyclerView(places);
+        setupAdapter(places);
     }
 
     public void openDetailActivity() {
-
+        openActivity(PlaceDetailActivity.class);
     }
 
-    private void setupRecyclerView(List<PlaceStore.Place> places) {
+    private void setupAdapter(List<PlaceStore.Place> places) {
 
         RecyclerView recyclerView = findViewById(R.id.place_list);
-        recyclerView.setAdapter(new PlaceRecyclerViewAdapter(places));
+        recyclerView.setAdapter(new PlaceListAdapter(places));
     }
 
     private void setupToolbar() {
@@ -83,10 +83,10 @@ public class PlaceListActivity
     }
 
     /*
-    private void setupRecyclerView() {
+    private void setupAdapter() {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.place_list);
-        recyclerView.setAdapter(new PlaceRecyclerViewAdapter(placeStore.getPlaces()));
+        recyclerView.setAdapter(new PlaceListAdapter(placeStore.getPlaces()));
     }
     */
 
@@ -103,12 +103,12 @@ public class PlaceListActivity
     */
 
 
-    class PlaceRecyclerViewAdapter
-            extends RecyclerView.Adapter<PlaceRecyclerViewAdapter.PlaceViewHolder> {
+    class PlaceListAdapter
+        extends RecyclerView.Adapter<PlaceListAdapter.PlaceViewHolder> {
 
         private List<PlaceStore.Place> places;
 
-        public PlaceRecyclerViewAdapter(List<PlaceStore.Place> places) {
+        public PlaceListAdapter(List<PlaceStore.Place> places) {
             this.places = places;
         }
 

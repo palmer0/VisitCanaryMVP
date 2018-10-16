@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.util.Log;
 
-import es.ulpgc.eite.master.visitcanarymvp.detail.PlaceDetailActivity;
 import es.ulpgc.eite.master.visitcanarymvp.detail.PlaceDetailPresenter;
 import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
 import es.ulpgc.mvp.arch.BasePresenter;
