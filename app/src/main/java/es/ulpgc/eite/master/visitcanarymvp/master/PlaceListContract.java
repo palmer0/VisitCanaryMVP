@@ -24,8 +24,10 @@ interface PlaceListContract {
 
   interface Model extends BaseContract.Model {
 
-    void initStore(Context managedContext);
+    //void initStore(Context managedContext);
     List<PlaceStore.Place> getPlaces();
+    void fillPlaceStoreFromAssets(Context managedContext);
+    void fillPlaceStoreFromResources(Context managedContext);
   }
 
 }

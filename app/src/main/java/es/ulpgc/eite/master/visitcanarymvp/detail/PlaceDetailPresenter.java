@@ -24,7 +24,10 @@ public class PlaceDetailPresenter
     Log.d("VisitCanary.List.Presenter", "onPresenterCreated");
 
     if(isViewAttached()) {
-      model.initStore(getView().getManagedContext());
+      //model.initStore(getView().getManagedContext());
+
+      //model.fillPlaceStoreFromResources(getView().getManagedContext());
+      model.fillPlaceStoreFromAssets(getView().getManagedContext());
     }
   }
 

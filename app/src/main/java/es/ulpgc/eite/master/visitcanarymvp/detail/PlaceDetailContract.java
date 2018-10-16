@@ -20,8 +20,10 @@ interface PlaceDetailContract {
 
   interface Model extends BaseContract.Model {
 
-    void initStore(Context managedContext);
+    //void initStore(Context managedContext);
     PlaceStore.Place getPlace(String placeId);
+    void fillPlaceStoreFromAssets(Context managedContext);
+    void fillPlaceStoreFromResources(Context managedContext);
   }
 
 }
