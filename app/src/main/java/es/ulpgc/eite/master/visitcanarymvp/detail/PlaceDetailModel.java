@@ -24,7 +24,6 @@ public class PlaceDetailModel
     store = new PlaceStore(managedContext);
   }
 
-  @Override
   public PlaceStore.Place getPlace(String placeId) {
     return store.getPlaceById(placeId);
   }
