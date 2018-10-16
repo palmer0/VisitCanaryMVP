@@ -1,19 +1,10 @@
-package es.ulpgc.eite.master.visitcanarymvp.master;
+package es.ulpgc.eite.master.visitcanarymvp.list;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import es.ulpgc.eite.master.visitcanarymvp.R;
 import es.ulpgc.eite.master.visitcanarymvp.data.PlaceRepository;
 import es.ulpgc.eite.master.visitcanarymvp.data.PlaceStore;
 import es.ulpgc.mvp.arch.BaseModel;

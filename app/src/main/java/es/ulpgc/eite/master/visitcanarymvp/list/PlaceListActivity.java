@@ -1,4 +1,4 @@
-package es.ulpgc.eite.master.visitcanarymvp.master;
+package es.ulpgc.eite.master.visitcanarymvp.list;
 
 import android.content.Context;
 import android.support.v7.app.ActionBar;

@@ -1,4 +1,4 @@
-package es.ulpgc.eite.master.visitcanarymvp.master;
+package es.ulpgc.eite.master.visitcanarymvp.list;
 
 import android.content.Context;
 
