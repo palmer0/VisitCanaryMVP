@@ -2,8 +2,6 @@ package es.ulpgc.eite.master.visitcanarymvp.detail;
 
 import android.content.Context;
 
-import java.util.List;
-
 import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
 import es.ulpgc.mvp.arch.BaseContract;
 

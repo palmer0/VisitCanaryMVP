@@ -3,7 +3,6 @@ package es.ulpgc.eite.master.visitcanarymvp.master;
 import android.content.Context;
 import android.util.Log;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;

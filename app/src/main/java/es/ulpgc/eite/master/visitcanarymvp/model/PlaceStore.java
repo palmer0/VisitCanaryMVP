@@ -32,18 +32,6 @@ public class PlaceStore {
 
     }
 
-    /*
-    public PlaceStore(List<String> titles, List<String> details, List<String> pictures) {
-        for (int position = 0; position < titles.size(); position++) {
-            String title = titles.get(position);
-            String detail = details.get(position);
-            String picture = pictures.get(position);
-            addPlace(createPlace(position, title, detail, picture));
-        }
-    }
-    */
-
-
     private void addPlace(Place place) {
         places.add(place);
     }

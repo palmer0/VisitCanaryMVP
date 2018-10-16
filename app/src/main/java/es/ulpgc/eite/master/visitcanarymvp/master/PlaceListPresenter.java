@@ -1,11 +1,9 @@
 package es.ulpgc.eite.master.visitcanarymvp.master;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.util.Log;
 
 import es.ulpgc.eite.master.visitcanarymvp.detail.PlaceDetailPresenter;
-import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
 import es.ulpgc.mvp.arch.BasePresenter;
 
 /**
@@ -15,18 +13,6 @@ import es.ulpgc.mvp.arch.BasePresenter;
 public class PlaceListPresenter
     extends BasePresenter<PlaceListContract.View, PlaceListContract.Model>
     implements PlaceListContract.Presenter {
-
-  //private PlaceListActivity view;
-  //private PlaceStore placeStore;
-  //private PlaceStore model;
-
-
-//  public PlaceListPresenter(PlaceListActivity view) {
-//    this.view=view;
-//    //fillPlaceStore();
-//    model = new PlaceStore(view);
-//    setupUI();
-//  }
 
 
   @SuppressLint("LongLogTag")
@@ -66,23 +52,9 @@ public class PlaceListPresenter
   
   private void setupUI(){
     if(isViewAttached()) {
-      //view.setupUI(placeStore.getPlaces());
       getView().setupUI(model.getPlaces());
     }
   }
-
-  /*
-  private void fillPlaceStore(){
-    if(view != null) {
-      Resources res = view.getResources();
-      List<String> titles = Arrays.asList(res.getStringArray(R.array.places_titles));
-      List<String> details = Arrays.asList(res.getStringArray(R.array.places_details));
-      List<String> pictures = Arrays.asList(res.getStringArray(R.array.places_pictures));
-
-      placeStore = new PlaceStore(titles, details, pictures);
-    }
-  }
-  */
 
   public void placeClicked(String placeId) {
     if(isViewAttached()) {
@@ -90,16 +62,5 @@ public class PlaceListPresenter
       getView().openDetailActivity();
     }
   }
-
-//  public void placeClicked(String placeId) {
-//    if(view != null) {
-//      //Context context = view.getContext();
-//      //Intent intent = new Intent(context, PlaceDetailActivity.class);
-//      Intent intent = new Intent(view, PlaceDetailActivity.class);
-//      intent.putExtra(PlaceDetailPresenter.PARAM_PLACE_ID, placeId);
-//      //context.startActivity(intent);
-//      view.startActivity(intent);
-//    }
-//  }
 
 }
