@@ -1,17 +1,17 @@
 
 <resources>
     <string-array name="places_titles">
-        <item>Colonial City of San Cristobal de la Laguna (Tenerife Island)</item>
-        <item>Las Palmas de Gran Canaria (Gran Canaria Island)</item>
-        <item>Culture and Beaches of Santa Cruz de Tenerife (Tenerife Island)</item>
-        <item>The Religious Heritage of Betancuria (Fuerteventura Island)</item>
-        <item>Corralejo Fishing Port and Beaches (Fuerteventura Island)</item>
-        <item>The Beach Resort of Puerto del Carmen (Lanzarote Island)</item>
-        <item>The Rich History and Tropical Gardens of La Orotava (Tenerife Island)</item>
-        <item>Santa Cruz de la Palma (La Palma Island)</item>
-        <item>Icod de los Vinos (Tenerife Island)</item>
-        <item>The Sunny Beach Resort of Playa de Santiago (Gomera Island)</item>
-        <item>Caldera de Taburiente National Park (La Palma Island)</item>
+        <item>Colonial City of San Cristobal de la Laguna (Tenerife)</item>
+        <item>Las Palmas de Gran Canaria</item>
+        <item>Culture and Beaches of Santa Cruz de Tenerife</item>
+        <item>The Religious Heritage of Betancuria (Fuerteventura)</item>
+        <item>Corralejo Fishing Port and Beaches (Fuerteventura)</item>
+        <item>The Beach Resort of Puerto del Carmen (Lanzarote)</item>
+        <item>The Rich History and Tropical Gardens of La Orotava (Tenerife)</item>
+        <item>Santa Cruz de La Palma</item>
+        <item>Icod de los Vinos (Tenerife)</item>
+        <item>The Sunny Beach Resort of Playa de Santiago (Gomera)</item>
+        <item>Caldera de Taburiente National Park (La Palma)</item>
         <item>The Beaches of Fuerteventura Island</item>
     </string-array>
 
