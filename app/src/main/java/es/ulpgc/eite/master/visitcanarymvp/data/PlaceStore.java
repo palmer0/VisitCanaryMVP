@@ -1,4 +1,4 @@
-package es.ulpgc.eite.master.visitcanarymvp.model;
+package es.ulpgc.eite.master.visitcanarymvp.data;
 
 import android.util.Log;
 

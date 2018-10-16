@@ -1,4 +1,4 @@
-package es.ulpgc.eite.master.visitcanarymvp.master;
+package es.ulpgc.eite.master.visitcanarymvp.data;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -14,52 +14,37 @@ import java.util.Arrays;
 import java.util.List;
 
 import es.ulpgc.eite.master.visitcanarymvp.R;
-import es.ulpgc.eite.master.visitcanarymvp.data.PlaceRepository;
-import es.ulpgc.eite.master.visitcanarymvp.data.PlaceStore;
-import es.ulpgc.mvp.arch.BaseModel;
 
-public class PlaceListModel
-    extends BaseModel<PlaceListContract.Presenter> implements PlaceListContract.Model {
+public class PlaceRepository {
 
+  private static PlaceRepository instance;
+  private PlaceStore store;
 
-  //private PlaceStore store;
-  //private PlaceRepository repository;
-
-  @Override
-  public void onPresenterCreated() {
-    super.onPresenterCreated();
-    Log.d("VisitCanary.List.Model", "onPresenterCreated");
+  public PlaceRepository(Context managedContext) {
+    //fillPlaceStoreFromResources( managedContext);
+    fillPlaceStoreFromAssets( managedContext);
   }
 
 
+  public static PlaceRepository getInstance(Context managedContext) {
+    if(instance == null) {
+      instance = new PlaceRepository(managedContext);
+    }
 
-  /*
-  public void initStore(Context managedContext){
-    Log.d("VisitCanary.List.Model", "initStore");
-
-    store = new PlaceStore(managedContext);
+    return instance;
   }
-  */
 
-  /*
-  public void init(Context managedContext){
-    repository = PlaceRepository.getInstance(managedContext);
+
+  public PlaceStore.Place getPlace(String placeId) {
+    return store.getPlaceById(placeId);
   }
 
   public List<PlaceStore.Place> getPlaces() {
-    //return store.getPlaces();
-    return repository.getPlaces();
-  }
-  */
-
-  @Override
-  public List<PlaceStore.Place> getPlaces(Context managedContext) {
-    return PlaceRepository.getInstance(managedContext).getPlaces();
+    return store.getPlaces();
   }
 
 
-  /*
-  public void fillPlaceStoreFromAssets(Context managedContext){
+  private void fillPlaceStoreFromAssets(Context managedContext){
     List<String> titles = new ArrayList();
     List<String> descriptions = new ArrayList();
     List<String> pictures = new ArrayList();
@@ -90,7 +75,7 @@ public class PlaceListModel
     Log.d("VisitCanary.List.Model", "fillPlaceStoreFromAssets: " + store.toJSONArray());
   }
 
-  public void fillPlaceStoreFromResources(Context managedContext){
+  private void fillPlaceStoreFromResources(Context managedContext){
     Resources res = managedContext.getResources();
     List<String> titles =
         Arrays.asList(res.getStringArray(R.array.places_titles));
@@ -126,6 +111,5 @@ public class PlaceListModel
     //return new JSONArray();
     return null;
   }
-  */
 
 }

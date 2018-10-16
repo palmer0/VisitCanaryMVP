@@ -4,7 +4,7 @@ import android.content.Context;
 
 import java.util.List;
 
-import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
+import es.ulpgc.eite.master.visitcanarymvp.data.PlaceStore;
 import es.ulpgc.mvp.arch.BaseContract;
 
 
@@ -24,10 +24,12 @@ interface PlaceListContract {
 
   interface Model extends BaseContract.Model {
 
+    //void init(Context managedContext);
     //void initStore(Context managedContext);
-    List<PlaceStore.Place> getPlaces();
-    void fillPlaceStoreFromAssets(Context managedContext);
-    void fillPlaceStoreFromResources(Context managedContext);
+    //List<PlaceStore.Place> getPlaces();
+    List<PlaceStore.Place> getPlaces(Context managedContext);
+    //void fillPlaceStoreFromAssets(Context managedContext);
+    //void fillPlaceStoreFromResources(Context managedContext);
   }
 
 }

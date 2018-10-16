@@ -14,14 +14,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import es.ulpgc.eite.master.visitcanarymvp.R;
-import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
+import es.ulpgc.eite.master.visitcanarymvp.data.PlaceRepository;
+import es.ulpgc.eite.master.visitcanarymvp.data.PlaceStore;
 import es.ulpgc.mvp.arch.BaseModel;
 
 public class PlaceDetailModel
     extends BaseModel<PlaceDetailContract.Presenter> implements PlaceDetailContract.Model {
 
 
-  private PlaceStore store;
+  //private PlaceStore store;
+  //private PlaceRepository repository;
 
   @Override
   public void onPresenterCreated() {
@@ -37,11 +39,24 @@ public class PlaceDetailModel
   }
   */
 
+  /*
+  public void init(Context managedContext){
+    repository = PlaceRepository.getInstance(managedContext);
+  }
+
   public PlaceStore.Place getPlace(String placeId) {
-    return store.getPlaceById(placeId);
+    //return store.getPlaceById(placeId);
+    return repository.getPlace(placeId);
+  }
+  */
+
+  @Override
+  public PlaceStore.Place getPlace(Context managedContext, String placeId) {
+    return PlaceRepository.getInstance(managedContext).getPlace(placeId);
   }
 
 
+  /*
   public void fillPlaceStoreFromAssets(Context managedContext){
     List<String> titles = new ArrayList();
     List<String> descriptions = new ArrayList();
@@ -109,4 +124,6 @@ public class PlaceDetailModel
     //return new JSONArray();
     return null;
   }
+  */
+
 }

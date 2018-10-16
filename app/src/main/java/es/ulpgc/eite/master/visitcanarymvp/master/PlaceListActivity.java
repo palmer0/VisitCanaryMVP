@@ -13,7 +13,7 @@ import java.util.List;
 
 import es.ulpgc.eite.master.visitcanarymvp.R;
 import es.ulpgc.eite.master.visitcanarymvp.detail.PlaceDetailActivity;
-import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
+import es.ulpgc.eite.master.visitcanarymvp.data.PlaceStore;
 import es.ulpgc.mvp.arch.BaseAnnotatedActivity;
 import es.ulpgc.mvp.arch.Viewable;
 

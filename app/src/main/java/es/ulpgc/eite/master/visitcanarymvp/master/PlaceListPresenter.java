@@ -21,12 +21,15 @@ public class PlaceListPresenter
     super.onPresenterCreated();
     Log.d("VisitCanary.List.Presenter", "onPresenterCreated");
 
+    /*
     if(isViewAttached()) {
       //model.initStore(getView().getManagedContext());
 
       //model.fillPlaceStoreFromResources(getView().getManagedContext());
-      model.fillPlaceStoreFromAssets(getView().getManagedContext());
+      //model.fillPlaceStoreFromAssets(getView().getManagedContext());
+      model.init(getView().getManagedContext());
     }
+    */
   }
 
   @SuppressLint("LongLogTag")
@@ -55,7 +58,8 @@ public class PlaceListPresenter
   
   private void setupUI(){
     if(isViewAttached()) {
-      getView().setupUI(model.getPlaces());
+      //getView().setupUI(model.getPlaces());
+      getView().setupUI(model.getPlaces(getView().getManagedContext()));
     }
   }
 

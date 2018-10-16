@@ -2,7 +2,7 @@ package es.ulpgc.eite.master.visitcanarymvp.detail;
 
 import android.content.Context;
 
-import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
+import es.ulpgc.eite.master.visitcanarymvp.data.PlaceStore;
 import es.ulpgc.mvp.arch.BaseContract;
 
 
@@ -20,10 +20,12 @@ interface PlaceDetailContract {
 
   interface Model extends BaseContract.Model {
 
+    //void init(Context managedContext);
     //void initStore(Context managedContext);
-    PlaceStore.Place getPlace(String placeId);
-    void fillPlaceStoreFromAssets(Context managedContext);
-    void fillPlaceStoreFromResources(Context managedContext);
+    //PlaceStore.Place getPlace(String placeId);
+    PlaceStore.Place getPlace(Context managedContext, String placeId);
+    //void fillPlaceStoreFromAssets(Context managedContext);
+    //void fillPlaceStoreFromResources(Context managedContext);
   }
 
 }

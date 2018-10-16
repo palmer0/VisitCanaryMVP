@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import es.ulpgc.eite.master.visitcanarymvp.R;
-import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
+import es.ulpgc.eite.master.visitcanarymvp.data.PlaceStore;
 import es.ulpgc.mvp.arch.BaseAnnotatedActivity;
 import es.ulpgc.mvp.arch.Viewable;
 

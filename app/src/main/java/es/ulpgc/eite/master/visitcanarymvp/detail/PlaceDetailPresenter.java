@@ -3,7 +3,7 @@ package es.ulpgc.eite.master.visitcanarymvp.detail;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
-import es.ulpgc.eite.master.visitcanarymvp.model.PlaceStore;
+import es.ulpgc.eite.master.visitcanarymvp.data.PlaceStore;
 import es.ulpgc.mvp.arch.BasePresenter;
 
 /**
@@ -23,12 +23,15 @@ public class PlaceDetailPresenter
     super.onPresenterCreated();
     Log.d("VisitCanary.List.Presenter", "onPresenterCreated");
 
+    /*
     if(isViewAttached()) {
       //model.initStore(getView().getManagedContext());
 
       //model.fillPlaceStoreFromResources(getView().getManagedContext());
-      model.fillPlaceStoreFromAssets(getView().getManagedContext());
+      //model.fillPlaceStoreFromAssets(getView().getManagedContext());
+      model.init(getView().getManagedContext());
     }
+    */
   }
 
   @SuppressLint("LongLogTag")
@@ -58,7 +61,8 @@ public class PlaceDetailPresenter
     if(isViewAttached()) {
 
       String placeId = getInStateBundle().getString(PARAM_PLACE_ID);
-      PlaceStore.Place place = model.getPlace(placeId);
+      //PlaceStore.Place place = model.getPlace(placeId);
+      PlaceStore.Place place = model.getPlace(getView().getManagedContext(), placeId);
 
       if (place != null) {
         getView().setupUI(place);
