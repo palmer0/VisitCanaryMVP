@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/VisitCanaryMVP.iml" filepath="$PROJECT_DIR$/.idea/VisitCanaryMVP.iml" />
       <module fileurl="file://$PROJECT_DIR$/VisitCanaryMVP.iml" filepath="$PROJECT_DIR$/VisitCanaryMVP.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mvp-arch/mvp-arch.iml" filepath="$PROJECT_DIR$/mvp-arch/mvp-arch.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvp-arch/mvp-arch.iml" filepath="$PROJECT_DIR$/mvp-arch/mvp-arch.iml" />
     </modules>
   </component>
